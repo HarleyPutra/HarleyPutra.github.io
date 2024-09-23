@@ -18,7 +18,22 @@
 			small:    [ '481px',   '736px'  ],
 			xsmall:   [ null,      '480px'  ]
 		});
-
+	
+	// Mousemovement.
+		function mouseMove(card, e) {
+			const x = e.clientX - card.offsetLeft;
+			const y = e.clientY - card.offsetTop;
+	  
+			card.style.setProperty("--x", `${x}px`);
+			card.style.setProperty("--y", `${y}px`);
+	  	}
+	  
+	  	document
+			.querySelectorAll(".mousemovement")
+			.forEach((wrapper) =>
+			wrapper.addEventListener("mousemove", (e) => mouseMove(wrapper, e))
+		);
+	
 	// Hack: Enable IE flexbox workarounds.
 		if (browser.name == 'ie')
 			$body.addClass('is-ie');
