@@ -3908,16 +3908,45 @@ input, select, textarea {
 		}
 
 /* MouseMovement */
-	.mousemovement{
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: transparent;
-		z-index: 9999;
-		background-image: radial-gradient(
-			600px at var(--x) var(--y), rgba(231,115,100,0.05), rgba(165, 90, 82, 0.05),transparent 80%
-		);
+.mousemovement {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent;
+	z-index: 1; /* Make sure this is lower than interactive elements like buttons */
+	pointer-events: none; /* This ensures the flashlight doesn’t block button interactions */
+  }
+  
+  .mousemovement::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: radial-gradient(
+	  600px at var(--x) var(--y), 
+	  rgba(231, 115, 100, 0.05), 
+	  rgba(165, 90, 82, 0.05), 
+	  transparent 80%
+	);
+	pointer-events: none; /* Ensure this doesn't block interactions */
+  }
+
+/* Button Z */
+	.button, .ul, .li{
+		position: relative;
+		z-index: 2 !important;
 	}
 
+/* Items */
+
+	#item-description {
+		text-align: justify;
+	}
+
+	#BeebookRewards{
+		width: 1244px;
+	}

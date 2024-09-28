@@ -20,19 +20,18 @@
 		});
 	
 	// Mousemovement.
-		function mouseMove(card, e) {
-			const x = e.clientX - card.offsetLeft;
-			const y = e.clientY - card.offsetTop;
+		function mouseMove(e) {
+			const card = document.querySelector('.mousemovement');
+			const x = e.clientX;
+			const y = e.clientY;
 	  
 			card.style.setProperty("--x", `${x}px`);
 			card.style.setProperty("--y", `${y}px`);
 	  	}
 	  
-	  	document
-			.querySelectorAll(".mousemovement")
-			.forEach((wrapper) =>
-			wrapper.addEventListener("mousemove", (e) => mouseMove(wrapper, e))
-		);
+	  	// Attach the event to the whole document to track mouse movement
+	  	document.addEventListener("mousemove", mouseMove);
+		
 	
 	// Hack: Enable IE flexbox workarounds.
 		if (browser.name == 'ie')
