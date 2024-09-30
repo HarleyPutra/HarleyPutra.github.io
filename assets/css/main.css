@@ -3951,3 +3951,7 @@ input, select, textarea {
 	#BeebookRewards{
 		width: 1244px;
 	}
+
+	p{
+		text-align: justify;
+	}
