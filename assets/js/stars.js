@@ -8,9 +8,7 @@
     animate();
 
     function init(){
-        // Target the starfield container
         container = document.getElementById('starfield-container');
-        // Set up the canvas size
         HEIGHT = window.innerHeight;
         WIDTH = window.innerWidth;
         aspectRatio = WIDTH / HEIGHT;
@@ -22,18 +20,14 @@
         windowHalfX = WIDTH / 2;
         windowHalfY = HEIGHT / 2;
 
-        // Camera setup
         camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
         camera.position.z = farPlane / 2;
 
-        // Scene setup
         scene = new THREE.Scene();
         scene.fog = new THREE.FogExp2(0x000000, 0.0003);
 
-        // Star generation
         starGen();
 
-        // WebGL renderer
         if(webGLSupport()){
             renderer = new THREE.WebGLRenderer({ alpha: true });
         } else {
@@ -43,10 +37,8 @@
         renderer.setSize(WIDTH, HEIGHT);
         renderer.setPixelRatio(window.devicePixelRatio);
 
-        // Append the renderer's canvas to the container
         container.appendChild(renderer.domElement);
 
-        // Event listeners
         window.addEventListener('resize', onWindowResize, false);
         document.addEventListener('mousemove', onMouseMove, false);
     }
@@ -84,18 +76,14 @@
         var matCanvas = document.createElement('canvas');
         matCanvas.width = matCanvas.height = size;
         var matContext = matCanvas.getContext('2d');
-        // create exture object from canvas.
         var texture = new THREE.Texture(matCanvas);
-        // Draw a circle
         var center = size / 2;
         matContext.beginPath();
         matContext.arc(center, center, size/2, 0, 2 * Math.PI, false);
         matContext.closePath();
         matContext.fillStyle = color;
         matContext.fill();
-        // need to set needsUpdate
         texture.needsUpdate = true;
-        // return a texture made from the canvas
         return texture;
       }
 
@@ -110,12 +98,8 @@
             depthWrite: false
         };
     
-
-
-        // Create material for the stars
         starStuff = new THREE.PointCloudMaterial(materialOptions);
     
-        // Generate stars and push them into geometry.vertices
         for (var i = 0; i < starQty; i++) {
             var starVertex = new THREE.Vector3();
             starVertex.x = Math.random() * 2000 - 1000;
@@ -125,7 +109,7 @@
             geometry.vertices.push(starVertex);
         }
     
-        stars = new THREE.PointCloud(geometry, starStuff); // Use PointCloud in r70
+        stars = new THREE.PointCloud(geometry, starStuff);
         scene.add(stars);
     }
 
@@ -133,4 +117,4 @@
         mouseX = e.clientX - windowHalfX;
         mouseY = e.clientY - windowHalfY;
     }
-})(jQuery);
+})();
