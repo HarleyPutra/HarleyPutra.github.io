@@ -10,6 +10,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/11/Stats.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/70/three.min.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -29,6 +32,7 @@
 			</section>
 		<!-- Wrapper -->
 			<div id="wrapper">
+				<div id="starfield-container"></div>
 				<div class="mousemovement"></div>
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
@@ -54,7 +58,7 @@
 							</div>
 						</section>
 						<section>
-							<a class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+							<a class="image"><img src="images/iccsci.png" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>Leukemia Ensemble Classifier</h2>
@@ -87,7 +91,7 @@
 							<div class="features">
 								<section>
 									<a href="Memori.html">
-										<span class="icon"><img src="images/UnrealLogo.png" style="height: 3.75rem;width: 3rem;"></span>
+										<span class="icon"><img src="images/UnrealLogo.png" style="height: 3.6rem;width: 3rem;"></span>
 										<h3>Memori</h3>
 										<p>A Cel shaded, Low Poly, First Person Shooter game made using the Unreal Engine 5 game engine.</p>
 									</a>
@@ -99,26 +103,6 @@
 										<p>A faction mod for the game Starsector, made using Java and Starsector's prioprietary interaction system.</p>
 									</a>
 								</section>
-								<!-- <section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section> -->
 							</div>
 						</div>
 					</section>
@@ -129,25 +113,6 @@
 							<section>
 								<h2>Get in touch</h2>
 								<div class="split style1">
-									<!-- <form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
-									</form> -->
 								</section>
 								<section>
 									<ul class="contact">
@@ -183,6 +148,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/stars.js"></script>
 
 	</body>
 </html>
